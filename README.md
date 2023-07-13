@@ -34,21 +34,21 @@
 
 <details>
 <summary>cat set_key.sh</summary>
-
+```bash 
 #!/bin/bash
 
-# устанавливаем ключ, значение и время жизни (TTL)
+`# устанавливаем ключ, значение и время жизни (TTL)
 key="volki_v_lesy"
 value=$(date +%s)
 ttl=5
 
-# выводим значения перед отправкой их в Memcached
+`# выводим значения перед отправкой их в Memcached
 echo "Отправляем в memcached следующие значениея:"
 echo "Key: $key"
 echo "Value: $value"
 echo "TTL: $ttl seconds"
 
-# подключаемся к серверу Memcached и устанавливаем ключ и значение
+`# подключаемся к серверу Memcached и устанавливаем ключ и значение
 echo -e "set $key 0 $ttl ${#value}\r\n$value\r\nquit" | nc localhost 11211
 
 </details>
@@ -60,17 +60,17 @@ echo -e "set $key 0 $ttl ${#value}\r\n$value\r\nquit" | nc localhost 11211
 
 #!/bin/bash
 
-# получаем ключ
+`# получаем ключ
 key="volki_v_lesy"
 
-# подключаемся к серверу Memcached и получаем значение ключа
+`# подключаемся к серверу Memcached и получаем значение ключа
 value=$(echo -e "get $key\r\nquit" | nc localhost 11211 | awk 'NR==2 {print $1; exit}' | tr -dc '0-9')
 
 if [ -n "$value" ]; then
     # вычисляем сколько времени прошло и оставшееся время жизни
     current_time=$(date +%s)
     key_time=$value
-#    elapsed_time=$((key_time - current_time))
+`#    elapsed_time=$((key_time - current_time))
     elapsed_time=$((current_time - key_time))
     remaining_ttl=$((5 - elapsed_time))
 
