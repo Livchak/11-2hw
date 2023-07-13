@@ -31,7 +31,7 @@
 **Скриншот 3-1_1** 
 <img src = "img/memcashed-key-volki.png" width = 100%>
 
-```
+```bash
 <details>
   <summary>cat set_key.sh</summary>
 
@@ -52,8 +52,9 @@ echo "TTL: $ttl seconds"
 echo -e "set $key 0 $ttl ${#value}\r\n$value\r\nquit" | nc localhost 11211
 
 </details>
-
 ```
+
+```bash
 <details>
   <summary>cat get_key.sh</summary>
 
@@ -82,7 +83,6 @@ else
 fi
 
 </details>
-
 ```
 
 ### Задание 4
