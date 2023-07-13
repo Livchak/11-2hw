@@ -29,11 +29,11 @@
 `Запишите в memcached несколько ключей с любыми именами и значениями, для которых выставлен TTL 5.`
 
 **Скриншот 3-1_1** 
-<img src = "img/memcashed-key-volki.png" width = 100%>
+<img src = "img/memcashed-key-volki.png" width = 40%>
 
-```bash
+
 <details>
-  <summary>cat set_key.sh</summary>
+<summary>cat set_key.sh</summary>
 
 #!/bin/bash
 
@@ -54,9 +54,9 @@ echo -e "set $key 0 $ttl ${#value}\r\n$value\r\nquit" | nc localhost 11211
 </details>
 ```
 
-```bash
+
 <details>
-  <summary>cat get_key.sh</summary>
+<summary>cat get_key.sh</summary>
 
 #!/bin/bash
 
@@ -90,7 +90,7 @@ fi
 `Запишите в Redis несколько ключей с любыми именами и значениями.`
 
 **Скриншот 4-1_1** 
-<img src = "img/redis-many-key.png" width = 100%>
+<img src = "img/redis-many-key.png" width = 40%>
 
 ---
 ## Дополнительные задания (со звездочкой*)
@@ -102,4 +102,4 @@ fi
 `Запишите в Redis ключ key5 со значением типа "int" равным числу 5. Увеличьте его на 5, чтобы в итоге в значении лежало число 10.`
 
 **Скриншот 5-1_1** 
-<img src = "img/redis-integer.png" width = 100%>
+<img src = "img/redis-integer.png" width = 40%>
