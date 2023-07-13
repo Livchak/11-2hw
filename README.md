@@ -31,7 +31,10 @@
 **Скриншот 3-1_1** 
 <img src = "img/memcashed-key-volki.png" width = 100%>
 
-```get_key.sh
+```
+<details>
+  <summary>cat set_key.sh</summary>
+
 #!/bin/bash
 
 # устанавливаем ключ, значение и время жизни (TTL)
@@ -47,8 +50,10 @@ echo "TTL: $ttl seconds"
 
 # подключаемся к серверу Memcached и устанавливаем ключ и значение
 echo -e "set $key 0 $ttl ${#value}\r\n$value\r\nquit" | nc localhost 11211
-```
 
+</details>
+
+```
 <details>
   <summary>cat get_key.sh</summary>
 
